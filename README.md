@@ -39,7 +39,7 @@ npm run dev
 
 ## Status do projeto
 
-- [x] Semana 1 — Backend base (Express + MongoDB + Auth)
+- [ ] Semana 1 — Backend base (Express + MongoDB + Auth)
 - [ ] Semana 2 — Scraping LinkedIn e Gupy
 - [ ] Semana 3 — Pipeline de processamento
 - [ ] Semana 4 — Dashboard React + Deploy
