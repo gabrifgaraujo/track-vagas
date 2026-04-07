@@ -1,4 +1,4 @@
-# CandidaturaTrack
+# TrackVagas
 
 > Transforme o caos de candidaturas em um Kanban organizado.
 > Cole o texto do email ou faça upload de um print — o app extrai
