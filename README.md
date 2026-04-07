@@ -1,45 +1,43 @@
-# AutoVagas
+# CandidaturaTrack
 
-> Agregador automático de vagas de TI — busca, processa e ranqueia 
-> vagas do LinkedIn e Gupy com base no seu perfil. Zero trabalho manual.
+> Transforme o caos de candidaturas em um Kanban organizado.
+> Cole o texto do email ou faça upload de um print — o app extrai
+> os dados automaticamente e você só confirma.
 
-[Demo](link) · [API Docs](link) · [Report Bug](issues)
+[Demo ao vivo →](link)
 
 ---
 
-## Como funciona
+## O problema
+Devs que enviam 50–100 candidaturas/mês perdem o controle: 
+não lembram o cargo, salário, empresa, em qual etapa estão. 
+Planilhas são pouco intuitivas.
 
-1. Você configura seu perfil de busca uma vez
-2. O sistema busca vagas 4x por dia automaticamente  
-3. Vagas são processadas, deduplicadas e ranqueadas por fit
-4. Você recebe alertas apenas das vagas que combinam com você
+## A solução
+1. Cole o texto do email ou faça upload de um print
+2. OCR + extração inteligente preenche os campos automaticamente
+3. Você confirma em ~15 segundos
+4. Candidatura vai direto para o Kanban
 
 ## Stack
-
-**Backend:** Node.js · Express · MongoDB · node-cron  
+**Backend:** Node.js · Express · MongoDB · tesseract.js · multer  
 **Frontend:** React · Vite · TypeScript  
-**Deploy:** Render (API) · Vercel (Frontend) · MongoDB Atlas
+**Deploy:** Render · Vercel · MongoDB Atlas
+
+## Status
+- [x] Semana 1 — Backend base (Express + MongoDB + CRUD)
+- [ ] Semana 2 — Ingestão inteligente (OCR + extração de campos)
+- [ ] Semana 3 — Kanban com drag & drop
+- [ ] Semana 4 — Score de fit + notas + export CSV
 
 ## Rodando localmente
 ```bash
-git clone https://github.com/gabrifgaraujo/autovagas
-cd autovagas/packages/backend
-cp .env.example .env   # configure suas variáveis
-npm install
-npm run dev
+git clone https://github.com/gabrifgaraujo/track-vagas
+cd track-vagas/packages/backend
+cp .env.example .env
+npm install && npm run dev
 ```
 
-## Variáveis de ambiente
-
-| Variável | Descrição |
-|---|---|
-| `MONGODB_URI` | Connection string do MongoDB Atlas |
-| `JWT_SECRET` | Secret para assinar os tokens |
-| `TELEGRAM_BOT_TOKEN` | Token do bot de alertas |
-
-## Status do projeto
-
-- [ ] Semana 1 — Backend base (Express + MongoDB + Auth)
-- [ ] Semana 2 — Scraping LinkedIn e Gupy
-- [ ] Semana 3 — Pipeline de processamento
-- [ ] Semana 4 — Dashboard React + Deploy
+## Limitações conhecidas (MVP)
+- OCR pode levar 3–8s em imagens grandes no plano gratuito do Render
+- Storage de imagens é temporário — não persistido entre deploys
